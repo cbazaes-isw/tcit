@@ -19,14 +19,6 @@ class Api::V1::PostsController < ApplicationController
       end
     end
   
-    def update
-      if @post.update(post_params)
-        render json: @post
-      else
-        render json: @post.errors, status: :unprocessable_entity
-      end
-    end
-  
     def destroy
       @post.destroy
       head :no_content
@@ -42,6 +34,6 @@ class Api::V1::PostsController < ApplicationController
     end
   
     def post_params
-      params.require(:post).permit(:name, :country)
+      params.require(:post).permit(:nombre, :descripcion)
     end
 end
