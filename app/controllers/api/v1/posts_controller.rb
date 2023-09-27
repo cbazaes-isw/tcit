@@ -21,7 +21,7 @@ class Api::V1::PostsController < ApplicationController
   
     def destroy
       @post.destroy
-      head :no_content
+      render json: @post
     end
   
     private
